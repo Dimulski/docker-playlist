@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p>Current Playlist:</p>
+<tr th:each="song : *{playlist}" th:object="${song}">
+    <!--<td th:text="${song}">Onions</td>-->
+    <!--<td th:text="${song}">2.41</td>-->
+    <!--<td th:text="${song}? #{true} : #{false}">yes</td>-->
+    <p th:text="${song}"></p>
+</tr>
+</body>
+</html>
