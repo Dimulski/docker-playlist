@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Playlist</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/homepage.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7 col-md-9 col-lg-10 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Playlist</h4>
+                        <div th:each="song : *{playlist}" th:object="${song}" class="form-label-group">
+                            <input th:placeholder="${song.title + ' - ' + song.artist + ' - ' + song.album}" type="text" id="song" class="form-control" autofocus disabled>
+                            <label for="song" th:text="${song.title + ' - ' + song.artist + ' - ' + song.album}"></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Add Song</h4>
+                    <form action="/homepage" method="post" class="form-signin">
+                        <div class="form-label-group">
+                            <input type="text" id="title" class="form-control" placeholder="Title" name="title" required autofocus>
+                            <label for="title">Title</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="text" id="artist" class="form-control" placeholder="Artist" name="artist" required autofocus>
+                            <label for="artist">Artist</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="text" id="album" class="form-control" placeholder="Album" name="album" required autofocus>
+                            <label for="album">Album</label>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Enter</button>
+                        <hr class="my-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
